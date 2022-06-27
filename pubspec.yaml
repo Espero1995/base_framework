@@ -15,6 +15,7 @@ publish_to: none
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# 项目版本号 可通过 ConfigService.to.version 进行获取
 version: 1.0.0+1
 
 
@@ -36,6 +37,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # 包信息
+  package_info_plus: ^1.4.0
   # getx 路由 + 状态管理 + 多语言 + 主题
   get: ^4.6.1
   # http 通讯
@@ -80,6 +83,8 @@ dependencies:
   wechat_camera_picker: ^3.1.0
   # 骨架屏
   skeletons: ^0.0.3
+  # svg
+  flutter_svg: ^1.0.3
 
   # 其他辅助库
   # “花里胡哨”的日志打印
@@ -121,6 +126,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/images/
+    - assets/svgs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -148,6 +154,24 @@ flutter:
     - family: Electronic
       fonts:
         - asset: assets/fonts/electronic-font.ttf
+
+    - family: NotoSansSC
+      fonts:
+        - asset: assets/fonts/NotoSansSC/NotoSansSC-Regular.ttf
+        - asset: assets/fonts/NotoSansSC/NotoSansSC-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/NotoSansSC/NotoSansSC-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/NotoSansSC/NotoSansSC-Light.ttf
+          weight: 300
+
+    - family: PTSerif
+      fonts:
+        - asset: assets/fonts/PTSerif/PTSerif-Regular.ttf
+        - asset: assets/fonts/PTSerif/PTSerif-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/PTSerif/PTSerif-Italic.ttf
+          style: italic
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -1,0 +1,1 @@
+static const defaultPng = 'assets/images/default.png';

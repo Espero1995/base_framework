@@ -1,0 +1,1 @@
+static const pHomeSvg = 'assets/svgs/p-home.svg';
