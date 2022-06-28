@@ -85,6 +85,8 @@ dependencies:
   skeletons: ^0.0.3
   # svg
   flutter_svg: ^1.0.3
+  # 验证
+  validatorless: ^1.2.1
 
   # 其他辅助库
   # “花里胡哨”的日志打印
