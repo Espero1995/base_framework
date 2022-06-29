@@ -8,13 +8,13 @@ class InputsPage extends GetView<InputsController> {
   const InputsPage({Key? key}) : super(key: key);
 
   // 主视图
-  Widget _buildView() {
+  Widget _buildView(BuildContext context) {
     return SingleChildScrollView(
-      child: _buildInputs().center(),
+      child: _buildInputs(context).center(),
     );
   }
 
-  Widget _buildInputs() {
+  Widget _buildInputs(BuildContext context) {
     return <Widget>[
       // 1 文本
       InputWidget.text(
@@ -45,8 +45,11 @@ class InputsPage extends GetView<InputsController> {
         IconWidget.icon(
           Icons.search,
         ).paddingRight(5).inkWell(
-              onTap: () => print("搜索一下呀🔍"),
-            ),
+          onTap: () {
+            FocusScope.of(context).requestFocus(FocusNode()); //收起键盘
+            print("搜索一下呀🔍");
+          },
+        ),
         controller: controller.suffixTextFilledController,
       ).width(300).paddingBottom(AppSpace.listRow),
 
@@ -97,7 +100,7 @@ class InputsPage extends GetView<InputsController> {
         return Scaffold(
           appBar: AppBar(title: const Text("inputs")),
           body: SafeArea(
-            child: _buildView(),
+            child: _buildView(context),
           ),
         );
       },

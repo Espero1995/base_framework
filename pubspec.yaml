@@ -87,6 +87,8 @@ dependencies:
   flutter_svg: ^1.0.3
   # 验证
   validatorless: ^1.2.1
+  # 设备启动图
+  flutter_native_splash: ^2.1.2+1
 
   # 其他辅助库
   # “花里胡哨”的日志打印
@@ -99,6 +101,11 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icons/logo-1024.png"
+
+# 设备启动图
+flutter_native_splash:
+  color: "#ffffff"
+  image: "assets/icons/LaunchImage.png"
 
 dev_dependencies: 
   flutter_test: 

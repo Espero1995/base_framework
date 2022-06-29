@@ -1,3 +1,4 @@
+import 'package:base_framework/common/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,8 +28,13 @@ class _MainViewGetX extends GetView<MainController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("MainPage"),
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          Get.toNamed(RouteNames.stylesIndexRoute);
+        },
+        child: const Text("Style"),
+      ),
     );
   }
 

@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           theme: ConfigService.to.isDarkMode ? AppTheme.dark : AppTheme.light,
 
           // 路由
-          initialRoute: RouteNames.splashRoute,
+          initialRoute: RouteNames.systemSplashRoute,
           getPages: RoutePages.pages,
           navigatorObservers: [RoutePages.observer], //路由监听
 

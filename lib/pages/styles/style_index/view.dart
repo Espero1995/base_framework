@@ -107,6 +107,88 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           onTap: () => Get.toNamed(RouteNames.stylesTextFormRoute),
           title: const TextWidget.body1("TextForm 输入框"),
         ),
+
+        const Divider(),
+
+        // modal 弹框
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("Modal 弹框"),
+        ),
+
+        const Divider(),
+
+        // PickerView
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("PickerView"),
+        ),
+
+        const Divider(),
+
+        // 下拉选择框
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("下拉选择框"),
+        ),
+
+        const Divider(),
+
+        // 单选tab/多选tab
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("单选tab / 多选tab"),
+        ),
+
+        const Divider(),
+
+        // 下拉刷新/上拉加载
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("下拉刷新/上拉加载"),
+        ),
+
+        const Divider(),
+
+        // 动画加载 Loading...
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("动画加载 Loading..."),
+        ),
+
+        const Divider(),
+
+        // 轮播图
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("轮播图"),
+        ),
+
+        const Divider(),
+
+        // 自定义ListView
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("自定义ListView"),
+        ),
+
+        const Divider(),
+
+        // 自定义GridView
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("自定义GridView"),
+        ),
+
+        const Divider(),
+
+        // 选择照片/拍照
+        ListTile(
+          onTap: () => {},
+          title: const TextWidget.body1("选择照片/拍照"),
+        ),
+
+        const Divider(),
       ],
     );
   }

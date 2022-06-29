@@ -4,7 +4,8 @@ class RouteNames {
   static const mainRoute = '/';
 
   /// 业务
-  static const splashRoute = '/splash';
+  static const systemSplashRoute = '/system_splash';
+  static const systemWelcomeRoute = '/system_welcome';
 
   /// 样式
   static const stylesIndexRoute = '/styles_index';

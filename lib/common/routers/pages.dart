@@ -6,8 +6,12 @@ abstract class RoutePages {
   //所有路由路径
   static final List<GetPage> pages = [
     GetPage(
-      name: RouteNames.splashRoute,
+      name: RouteNames.systemSplashRoute,
       page: () => const SplashPage(),
+    ),
+    GetPage(
+      name: RouteNames.systemWelcomeRoute,
+      page: () => const WelcomePage(),
     ),
     GetPage(
       name: RouteNames.mainRoute,

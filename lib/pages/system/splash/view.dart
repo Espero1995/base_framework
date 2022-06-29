@@ -7,25 +7,23 @@ import 'index.dart';
 class SplashPage extends GetView<SplashController> {
   const SplashPage({Key? key}) : super(key: key);
 
+  Widget _buildView() {
+    return Container(
+      color: Colors.white,
+      child: const ImageWidget.asset(
+        AssetsImages.splashPng,
+        fit: BoxFit.none,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SplashController>(
       init: SplashController(),
       id: "splash",
       builder: (_controller) {
-        return Scaffold(
-          appBar: AppBar(title: const Text("splash")),
-          body: SafeArea(
-            child: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Get.toNamed(RouteNames.stylesIndexRoute);
-                },
-                child: const Text("跳转到样式页面"),
-              ),
-            ),
-          ),
-        );
+        return _buildView();
       },
     );
   }

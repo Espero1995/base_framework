@@ -68,13 +68,16 @@ class ConfigService extends GetxService {
     Get.changeTheme(
       _isDarkMode.value == true ? AppTheme.dark : AppTheme.light,
     );
-    print("我要更改的主题是:${_isDarkMode.value == true ? '暗色' : '亮色'}");
     await Storage().setString(Constants.storageThemeCode,
         _isDarkMode.value == true ? "dark" : "light");
+
+    final themeCode = Storage().getString(Constants.storageThemeCode);
+    print(
+        "我要更改的主题是:${_isDarkMode.value == true ? '暗色' : '亮色'}=====本地存储的key：$themeCode");
 
     // 重新载入视图，因为
     // 1 有自定义颜色
     // 2 有些视图被缓存
-    Get.offAllNamed(RouteNames.splashRoute);
+    Get.offAllNamed(RouteNames.systemSplashRoute);
   }
 }

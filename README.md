@@ -87,8 +87,33 @@ https://developer.android.com/about/dashboards/index.html#Screens
 
 https://uiiiuiii.com/screen/   屏幕尺寸大全
 
+生成工具：https://hotpot.ai/icon-resizer
+
 生成完图片后，将其拖入对应的
 
 Android： android/app/src/main/res，并且在drawable文件中打开launch_background.xml的注释即可。
 
 iOS：ios/Runner.xcworkspace 双击打开【会自动以Xcode打开】在Runner/Assets.xcassets中替换 xx@1x、xx@2x和xx@3x 三张图片即可。
+
+
+
+
+
+### 工具类
+
+##### 1、JSON转Dart Model
+
+https://javiercbk.github.io/json_to_dart/ 
+
+##### 2、生成启动图(iOS/Android)
+
+https://hotpot.ai/icon-resizer
+
+##### 3、快速切图工具
+
+https://www.remove.bg/zh/upload  /  https://www.magiceraser.io
+
+
+
+
+

@@ -4,6 +4,7 @@ library pages;
 
 /// 系统
 export 'system/splash/index.dart';
+export 'system/welcome/index.dart';
 export 'system/main/index.dart';
 
 ///样式
