@@ -189,6 +189,12 @@ class StylesIndexPage extends GetView<StylesIndexController> {
         ),
 
         const Divider(),
+
+        // 验证码 Pin
+        ListTile(
+          onTap: () => Get.toNamed(RouteNames.stylesPinRoute),
+          title: const TextWidget.body1("验证码Pin"),
+        ),
       ],
     );
   }

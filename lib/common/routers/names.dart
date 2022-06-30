@@ -16,4 +16,5 @@ class RouteNames {
   static const stylesInputsRoute = '/styles_inputs';
   static const stylesTextFormRoute = '/styles_text_form';
   static const stylesToastLoadingRoute = '/styles_toast_loading';
+  static const stylesPinRoute = '/styles_pin';
 }

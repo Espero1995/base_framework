@@ -51,5 +51,9 @@ abstract class RoutePages {
       name: RouteNames.stylesToastLoadingRoute,
       page: () => const ToastLoadingPage(),
     ),
+    GetPage(
+      name: RouteNames.stylesPinRoute,
+      page: () => const PinPage(),
+    ),
   ];
 }

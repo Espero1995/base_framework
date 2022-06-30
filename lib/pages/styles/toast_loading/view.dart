@@ -13,14 +13,14 @@ class ToastLoadingPage extends GetView<ToastLoadingController> {
       // toast
       ButtonWidget.primary(
         "toast",
-        onTap: () => Loading.toast("toast Loading"),
+        onTap: () => Loading.toast("Toast Loading"),
       ).height(40).width(200).paddingTop(50).paddingBottom(AppSpace.listRow),
 
       // loading
       ButtonWidget.primary(
         "loading",
         onTap: () {
-          Loading.show();
+          Loading.show(text: "登录中，请稍后...");
           Future.delayed(
             const Duration(seconds: 2),
             () => Loading.dismiss(),

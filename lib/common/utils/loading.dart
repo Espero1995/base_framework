@@ -4,7 +4,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class Loading {
-  static const int _milliseconds = 1000; // 提示 延迟毫秒，提升体验 秒关体验太差
+  static const int _milliseconds = 500; // 提示 延迟毫秒，提升体验 秒关体验太差
   static const int _dismissMilliseconds = 1500; // dismisss 延迟毫秒
 
   Loading() {
@@ -38,15 +38,15 @@ class Loading {
   }
 
   /// show Success
-  static void success({
+  static Future<void> success({
     String? text,
     Color? indicatorColor,
     Color? textColor,
-  }) {
+  }) async {
     EasyLoading.instance
       ..indicatorColor = indicatorColor ?? Colors.green
       ..textColor = textColor ?? Colors.white;
-    Future.delayed(
+    await Future.delayed(
       const Duration(milliseconds: _milliseconds),
       () => EasyLoading.showSuccess(
           text ?? LocaleKeys.commonSuccessLoadingMsg.tr),
@@ -54,15 +54,15 @@ class Loading {
   }
 
   /// show Error
-  static void error({
+  static Future<void> error({
     String? text,
     Color? indicatorColor,
     Color? textColor,
-  }) {
+  }) async {
     EasyLoading.instance
       ..indicatorColor = indicatorColor ?? Colors.red
       ..textColor = textColor ?? Colors.white;
-    Future.delayed(
+    await Future.delayed(
       const Duration(milliseconds: _milliseconds),
       () => EasyLoading.showError(
         text ?? LocaleKeys.commonErrorLoadingMsg.tr,

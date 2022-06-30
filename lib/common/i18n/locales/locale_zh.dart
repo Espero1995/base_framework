@@ -11,10 +11,10 @@ Map<String, String> localeZh = {
   LocaleKeys.commonSelectTips: '请选择',
   LocaleKeys.commonMessageSuccess: '@method 成功',
   LocaleKeys.commonMessageIncorrect: '@method 不正确',
-
   LocaleKeys.commonDefaultLoadingMsg: '加载中...',
   LocaleKeys.commonSuccessLoadingMsg: '成功',
   LocaleKeys.commonErrorLoadingMsg: '错误',
+  LocaleKeys.commonNoData: '暂无数据',
 
   // 样式
   LocaleKeys.stylesTitle: '样式 && 功能',

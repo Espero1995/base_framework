@@ -19,7 +19,8 @@ class SplashController extends GetxController {
        * （1）登录页
        * （2）首页
        */
-      Get.offAllNamed(RouteNames.systemWelcomeRoute);
+      // Get.offAllNamed(RouteNames.systemWelcomeRoute);
+      Get.offAllNamed(RouteNames.mainRoute);
     });
   }
 

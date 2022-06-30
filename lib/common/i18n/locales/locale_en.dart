@@ -11,10 +11,10 @@ Map<String, String> localeEn = {
   LocaleKeys.commonSelectTips: 'Please select',
   LocaleKeys.commonMessageSuccess: '@method successfully',
   LocaleKeys.commonMessageIncorrect: '@method incorrect',
-
   LocaleKeys.commonDefaultLoadingMsg: 'Loading...',
   LocaleKeys.commonSuccessLoadingMsg: 'Success',
   LocaleKeys.commonErrorLoadingMsg: 'Error',
+  LocaleKeys.commonNoData: 'No Data',
 
   // 样式
   LocaleKeys.stylesTitle: 'Sytles && Function',
