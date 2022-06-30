@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -43,10 +44,11 @@ class MyApp extends StatelessWidget {
           builder: (context, child) {
             ScreenUtil.setContext(context); // 传入context会更灵敏的根据屏幕变化而改变
             // child = xxxx; // 其他如果需要child边如此赋值即可。
+            child = EasyLoading.init()(context, child); // EasyLoading 初始化
             // 不随系统字体缩放比例
             return MediaQuery(
               data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-              child: child!,
+              child: child,
             );
           },
 

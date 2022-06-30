@@ -152,7 +152,7 @@ class StylesIndexPage extends GetView<StylesIndexController> {
 
         // 动画加载 Loading...
         ListTile(
-          onTap: () => {},
+          onTap: () => Get.toNamed(RouteNames.stylesToastLoadingRoute),
           title: const TextWidget.body1("动画加载 Loading..."),
         ),
 

@@ -12,6 +12,10 @@ Map<String, String> localeEn = {
   LocaleKeys.commonMessageSuccess: '@method successfully',
   LocaleKeys.commonMessageIncorrect: '@method incorrect',
 
+  LocaleKeys.commonDefaultLoadingMsg: 'Loading...',
+  LocaleKeys.commonSuccessLoadingMsg: 'Success',
+  LocaleKeys.commonErrorLoadingMsg: 'Error',
+
   // 样式
   LocaleKeys.stylesTitle: 'Sytles && Function',
 };

@@ -1,3 +1,4 @@
 library utils;
 
-export 'storage.dart';
+export 'storage.dart'; // 本地存储
+export 'loading.dart'; // 等待框

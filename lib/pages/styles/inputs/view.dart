@@ -46,7 +46,6 @@ class InputsPage extends GetView<InputsController> {
           Icons.search,
         ).paddingRight(5).inkWell(
           onTap: () {
-            FocusScope.of(context).requestFocus(FocusNode()); //收起键盘
             print("搜索一下呀🔍");
           },
         ),
@@ -59,6 +58,14 @@ class InputsPage extends GetView<InputsController> {
         hintText: "搜索 > 输入框",
         suffixIcon: const Icon(Icons.dark_mode),
       ).width(300).paddingBottom(AppSpace.listRow),
+
+      // 触发关闭键盘点击事件
+      ElevatedButton(
+        onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode()); //收起键盘
+        },
+        child: const Text("点我 -> 关闭键盘 / 通过GestureDetector添加收起键盘"),
+      ),
 
       // 1 选择框
       CheckBoxWidget(

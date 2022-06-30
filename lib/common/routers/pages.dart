@@ -47,5 +47,9 @@ abstract class RoutePages {
       name: RouteNames.stylesTextFormRoute,
       page: () => const TextFormPage(),
     ),
+    GetPage(
+      name: RouteNames.stylesToastLoadingRoute,
+      page: () => const ToastLoadingPage(),
+    ),
   ];
 }

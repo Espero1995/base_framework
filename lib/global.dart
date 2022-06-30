@@ -13,5 +13,6 @@ class Global {
 
     // 工具类
     await Storage().init();
+    Loading();
   }
 }

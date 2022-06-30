@@ -15,3 +15,4 @@ export 'styles/image/index.dart';
 export 'styles/buttons/index.dart';
 export 'styles/inputs/index.dart';
 export 'styles/text_form/index.dart';
+export 'styles/toast_loading/index.dart';
