@@ -6,6 +6,7 @@ class RouteNames {
   /// 业务
   static const systemSplashRoute = '/system_splash';
   static const systemWelcomeRoute = '/system_welcome';
+  static const systemLoginRoute = '/system_login';
 
   /// 样式
   static const stylesIndexRoute = '/styles_index';

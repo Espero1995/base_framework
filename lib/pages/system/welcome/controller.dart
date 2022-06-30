@@ -17,7 +17,7 @@ class WelcomeController extends GetxController {
 
   // 跳转到主界面
   void onToMain() {
-    Get.offAllNamed(RouteNames.mainRoute);
+    Get.offAllNamed(RouteNames.systemLoginRoute);
   }
 
   // 跳转到下一个页面

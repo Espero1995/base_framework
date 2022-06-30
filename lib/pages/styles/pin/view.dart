@@ -14,8 +14,8 @@ class PinPage extends GetView<PinController> {
       child: <Widget>[
         // 头部标题
         const PageTitleWidget(
-          title: "验证",
-          desc: "我们将向您发送验证码以继续您的帐户",
+          title: "Verification",
+          desc: "We will send you a code to continue your account.",
         ),
         // 表单
         _buildForm().card(),
@@ -34,7 +34,7 @@ class PinPage extends GetView<PinController> {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: <Widget>[
         // 提示文
-        const TextWidget.body1("验证码 Pin").paddingBottom(20.w).alignLeft(),
+        const TextWidget.body1("Code & Pin").paddingBottom(20.w).alignLeft(),
 
         // pin
         PinPutWidget(

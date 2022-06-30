@@ -12,10 +12,10 @@ class PinController extends GetxController {
   void onPinSubmit(String val) {
     debugPrint("onPinSubmit: $val");
     if (val == '888888') {
-      Loading.show(text: "正在校验中，请稍后...");
+      Loading.show(text: "Verifying, please...");
       Future.delayed(const Duration(milliseconds: 1500), () async {
         await Loading.dismiss();
-        await Loading.success(text: "校验成功！");
+        await Loading.success(text: "Verification Succeeded!");
         Get.back();
       });
     }
@@ -23,7 +23,7 @@ class PinController extends GetxController {
 
   // 验证 pin
   String? pinValidator(val) {
-    return val == '888888' ? null : '验证码不正确，默认888888';
+    return val == '888888' ? null : 'Error Code, Default:888888';
   }
 
   _initData() {

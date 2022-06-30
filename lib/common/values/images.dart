@@ -6,4 +6,5 @@ class AssetsImages {
   static const welcome_2Jpg = 'assets/images/welcome_2.jpg';
   static const welcome_3Jpg = 'assets/images/welcome_3.jpg';
   static const placeholderPng = 'assets/images/placeholder.png';
+  static const loginLogoPng = 'assets/images/login_logo.png';
 }

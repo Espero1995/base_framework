@@ -50,7 +50,7 @@ class WelcomePage extends GetView<WelcomeController> {
                 borderRadius: 22,
                 textSize: 16,
                 onTap: controller.onToMain,
-              ).height(44)
+              ).height(50)
             : <Widget>[
                 // 跳过
                 ButtonWidget.text(

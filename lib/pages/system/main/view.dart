@@ -28,14 +28,14 @@ class _MainViewGetX extends GetView<MainController> {
 
   // 主视图
   Widget _buildView() {
-    return Center(
-      child: ElevatedButton(
+    return <Widget>[
+      ElevatedButton(
         onPressed: () {
           Get.toNamed(RouteNames.stylesIndexRoute);
         },
         child: const Text("Style"),
       ),
-    );
+    ].toColumn(mainAxisAlignment: MainAxisAlignment.center).center();
   }
 
   @override
@@ -45,7 +45,9 @@ class _MainViewGetX extends GetView<MainController> {
       id: "main",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("main")),
+          appBar: AppBar(
+            title: const Text("Home"),
+          ),
           body: SafeArea(
             child: _buildView(),
           ),

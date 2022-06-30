@@ -55,5 +55,9 @@ abstract class RoutePages {
       name: RouteNames.stylesPinRoute,
       page: () => const PinPage(),
     ),
+    GetPage(
+      name: RouteNames.systemLoginRoute,
+      page: () => const LoginPage(),
+    ),
   ];
 }

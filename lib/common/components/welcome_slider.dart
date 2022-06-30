@@ -28,11 +28,16 @@ class WelcomeSlider extends StatelessWidget {
 
         // 标题
         if (item.title != null)
-          TextWidget.title1(
-            item.title ?? "",
+          TextWidget(
+            text: item.title ?? "",
             maxLines: 2,
             softWrap: true,
             textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontFamily: 'PTSerif',
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+            ),
           ).paddingBottom(20),
 
         // 描述
