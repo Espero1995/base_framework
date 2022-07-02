@@ -1,5 +1,4 @@
-import 'package:base_framework/common/routers/index.dart';
-import 'package:base_framework/common/utils/loading.dart';
+import 'package:base_framework/common/index.dart';
 import 'package:base_framework/pages/system/main/view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,18 +17,22 @@ class LoginController extends GetxController {
   /// 登录
   Future<void> onSignIn() async {
     if ((userformKey.currentState as FormState).validate()) {
-      try {
-        Loading.show(text: "Logining, Please...");
-        Future.delayed(const Duration(milliseconds: 1500), () async {
-          await Loading.dismiss();
-          await Loading.success(text: "Login Succeeded!");
-          await Get.off(const MainPage());
-        });
-      } catch (e) {
-        await Loading.error(text: "Login Failed!");
-      } finally {
-        await Loading.dismiss();
-      }
+      await UserApi.login(UserLoginRequest(
+        account: accountController.text,
+        passwd: pwdController.text,
+      ));
+
+      // try {
+      //   Loading.show(text: "Logining, Please...");
+      //   Future.delayed(const Duration(milliseconds: 1500), () async {
+      //     await Loading.success(text: "Login Succeeded!");
+      //     await Get.off(const MainPage());
+      //   });
+      // } catch (e) {
+      //   await Loading.error(text: "Login Failed!");
+      // } finally {
+      //   await Loading.dismiss();
+      // }
     }
   }
 

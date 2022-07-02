@@ -9,14 +9,20 @@ import '../index.dart';
 class ConfigService extends GetxService {
   // 这是一种单例写法 后面我们会用到的onReady 的时候初始数据。【使用的时候例如：ConfigService.to.version即可】
   static ConfigService get to => Get.find();
+
   // 项目版本号
   PackageInfo? _platform;
   String get version => _platform?.version ?? '-';
+
   // 国家化
   Locale locale = PlatformDispatcher.instance.locale;
+
   // 主题
   final RxBool _isDarkMode = Get.isDarkMode.obs;
   bool get isDarkMode => _isDarkMode.value;
+
+  // 是否首次打开
+  bool get firstOpen => Storage().getBool(Constants.storageFirstOpen);
 
   @override
   void onReady() {
@@ -79,5 +85,11 @@ class ConfigService extends GetxService {
     // 1 有自定义颜色
     // 2 有些视图被缓存
     Get.offAllNamed(RouteNames.systemSplashRoute);
+  }
+
+  // ==================== 首次打开 ====================
+  // 标记已打开app
+  void setAlreadyOpen({bool boolValue = true}) {
+    Storage().setBool(Constants.storageFirstOpen, boolValue);
   }
 }

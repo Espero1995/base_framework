@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:base_framework/global.dart';
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response, FormData, MultipartFile;
 
@@ -22,13 +24,28 @@ class HttpRequestService extends GetxService {
       connectTimeout: 10000, //10秒
       receiveTimeout: 5000, //5秒
       headers: {},
-      contentType: 'application/json; charset=utf-8',
+      contentType:
+          "application/json; charset=utf-8", //"application/x-www-form-urlencoded",
       responseType: ResponseType.json,
     );
 
     _dio = Dio(options);
     // 拦截器
     _dio.interceptors.add(RequestInterceptors());
+
+    // 在调试模式下需要抓包调试，所以我们使用代理，并禁用HTTPS证书校验
+    if (!Global.isRelease && PROXY_ENABLE) {
+      (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+          (client) {
+        client.findProxy = (uri) {
+          return "PROXY $PROXY_IP:$PROXY_PORT";
+        };
+        //代理工具会提供一个抓包的自签名证书，会通不过证书校验，所以我们禁用证书校验
+        client.badCertificateCallback =
+            (X509Certificate cert, String host, int port) => true;
+        return null;
+      };
+    }
   }
 
   /// get 请求
@@ -102,6 +119,17 @@ class HttpRequestService extends GetxService {
 /// 拦截
 class RequestInterceptors extends Interceptor {
   @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    // super.onRequest(options, handler);
+
+    if (UserService.to.hasToken) {
+      options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
+    }
+    print("拦截器：$options");
+    return handler.next(options);
+  }
+
+  @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     if (response.statusCode != 200 && response.statusCode != 201) {
       handler.reject(
@@ -119,8 +147,7 @@ class RequestInterceptors extends Interceptor {
 
   /// 退出并重新登录
   Future<void> _errorNoAuthLogout() async {
-    // 退出登录 TODO
-    // await UserService.to.logout();
+    await UserService.to.logout();
     Get.toNamed(RouteNames.systemLoginRoute);
   }
 
@@ -134,11 +161,13 @@ class RequestInterceptors extends Interceptor {
           // doing..
           final response = err.response;
           final errorMessage = ErrorMessageModel.fromJson(response?.data);
+          var msg = '';
           switch (errorMessage.statusCode) {
             case 401: // 401 标识没有登录认证
               _errorNoAuthLogout();
               break;
             case 404:
+              msg = '${errorMessage.statusCode} - Server not found';
               break;
             case 500:
               break;

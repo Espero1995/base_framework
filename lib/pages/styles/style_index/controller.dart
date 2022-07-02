@@ -8,6 +8,16 @@ class StylesIndexController extends GetxController {
   set title(value) => _title = value;
   get title => _title;
 
+  /// 检测是否有欢迎页
+  static bool _isFirstOpenChecked = !ConfigService.to.firstOpen;
+  set isFirstOpenChecked(value) {
+    _isFirstOpenChecked = value;
+    ConfigService.to.setAlreadyOpen(boolValue: !value);
+    update(["style_index"]);
+  }
+
+  get isFirstOpenChecked => _isFirstOpenChecked;
+
   onTextChange(String str) {
     title = str;
     update(["style_index"]);

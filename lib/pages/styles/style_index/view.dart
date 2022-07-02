@@ -1,4 +1,7 @@
+import 'package:base_framework/pages/index.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:base_framework/common/index.dart';
 
@@ -48,6 +51,18 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           onTap: () {
             _controller.onLanguageSelected();
           },
+        ),
+
+        const Divider(),
+
+        //国际化
+        ListTile(
+          title: const Text("欢迎页开启"),
+          trailing: CupertinoSwitch(
+              value: controller.isFirstOpenChecked,
+              onChanged: (v) {
+                controller.isFirstOpenChecked = v;
+              }),
         ),
 
         const Divider(),
@@ -195,6 +210,20 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           onTap: () => Get.toNamed(RouteNames.stylesPinRoute),
           title: const TextWidget.body1("验证码Pin"),
         ),
+
+        ButtonWidget.text(
+          "Logout",
+          bgColor: Colors.red,
+          textColor: Colors.white,
+          textSize: 18.sp,
+          borderRadius: 5.w,
+          onTap: () => Get.offAll(const LoginPage()),
+        ).height(50.w).padding(
+              left: AppSpace.page,
+              right: AppSpace.page,
+              bottom: AppSpace.listRow * 2,
+              top: AppSpace.listRow * 2,
+            ),
       ],
     );
   }
