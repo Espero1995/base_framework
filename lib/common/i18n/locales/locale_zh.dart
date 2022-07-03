@@ -16,6 +16,16 @@ Map<String, String> localeZh = {
   LocaleKeys.commonErrorLoadingMsg: '错误',
   LocaleKeys.commonNoData: '暂无数据',
 
+  // 网络请求
+  LocaleKeys.netUnauthorized: "未授权，登录账号已过期",
+  LocaleKeys.netNotFound: "未找到数据",
+  LocaleKeys.netServerError: "服务器错误",
+  LocaleKeys.netBadGateway: "网关错误",
+  LocaleKeys.netUnknownMistake: "未知错误",
+  LocaleKeys.netTimeout: "网络连接超时",
+  LocaleKeys.netCancel: "网络连接取消",
+  LocaleKeys.netOther: "其他错误",
+
   // 样式
   LocaleKeys.stylesTitle: '样式 && 功能',
 };

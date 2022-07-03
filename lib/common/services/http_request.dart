@@ -24,8 +24,7 @@ class HttpRequestService extends GetxService {
       connectTimeout: 10000, //10秒
       receiveTimeout: 5000, //5秒
       headers: {},
-      contentType:
-          "application/json; charset=utf-8", //"application/x-www-form-urlencoded",
+      contentType: "application/json; charset=utf-8",
       responseType: ResponseType.json,
     );
 
@@ -69,13 +68,15 @@ class HttpRequestService extends GetxService {
   Future<Response> post(
     String url, {
     dynamic data,
+    String contentType = "json",
     Options? options,
     CancelToken? cancelToken,
   }) async {
     Options requestOptions = options ?? Options();
+    // json 格式 / form 表单格式
     Response response = await _dio.post(
       url,
-      data: data,
+      data: contentType == "json" ? data : FormData.fromMap(data.toJson()),
       options: requestOptions,
       cancelToken: cancelToken ?? _cancelToken,
     );
@@ -121,11 +122,9 @@ class RequestInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // super.onRequest(options, handler);
-
     if (UserService.to.hasToken) {
       options.headers['Authorization'] = 'Bearer ${UserService.to.token}';
     }
-    print("拦截器：$options");
     return handler.next(options);
   }
 
@@ -141,7 +140,13 @@ class RequestInterceptors extends Interceptor {
         true,
       );
     } else {
-      handler.next(response);
+      int ret = response.data["ret"];
+      String info = response.data["info"];
+      if (ret == 0) {
+        handler.next(response);
+      } else {
+        Loading.error(text: "$info【$ret】");
+      }
     }
   }
 
@@ -160,32 +165,52 @@ class RequestInterceptors extends Interceptor {
         {
           // doing..
           final response = err.response;
-          final errorMessage = ErrorMessageModel.fromJson(response?.data);
+          final statusCode = response?.statusCode;
           var msg = '';
-          switch (errorMessage.statusCode) {
+          switch (response!.statusCode) {
             case 401: // 401 标识没有登录认证
+              msg = LocaleKeys.netUnauthorized.tr;
               _errorNoAuthLogout();
               break;
             case 404:
-              msg = '${errorMessage.statusCode} - Server not found';
+              msg = LocaleKeys.netNotFound.tr;
               break;
             case 500:
+              msg = LocaleKeys.netServerError.tr;
               break;
             case 502:
+              msg = LocaleKeys.netBadGateway.tr;
               break;
             default:
+              msg = LocaleKeys.netUnknownMistake.tr;
               break;
           }
-          Loading.error(text: errorMessage.message);
+          Loading.error(text: "$statusCode - $msg");
         }
         break;
-      case DioErrorType.other:
+      case DioErrorType.connectTimeout:
+        print('network request timed out');
+        Loading.error(text: LocaleKeys.netTimeout.tr);
+        break;
+      case DioErrorType.sendTimeout:
+        print('network send timed out');
+        Loading.error(text: LocaleKeys.netTimeout.tr);
+        break;
+      case DioErrorType.receiveTimeout:
+        print('network receive timed out');
+        Loading.error(text: LocaleKeys.netTimeout.tr);
         break;
       case DioErrorType.cancel:
+        print('request cancel');
+        Loading.error(text: LocaleKeys.netCancel.tr);
         break;
-      case DioErrorType.connectTimeout:
+      case DioErrorType.other:
+        print("other error type: ${err.message}");
+        Loading.error(text: LocaleKeys.netOther.tr);
         break;
       default:
+        print('unknown mistake');
+        Loading.error(text: LocaleKeys.netUnknownMistake.tr);
         break;
     }
     err.error = exception;

@@ -16,6 +16,16 @@ Map<String, String> localeEn = {
   LocaleKeys.commonErrorLoadingMsg: 'Error',
   LocaleKeys.commonNoData: 'No Data',
 
+  // 网络请求
+  LocaleKeys.netUnauthorized: "Unauthorized, login account expired",
+  LocaleKeys.netNotFound: "Server not found ",
+  LocaleKeys.netServerError: "Server error",
+  LocaleKeys.netBadGateway: "Bad gateway",
+  LocaleKeys.netUnknownMistake: "Unknown mistake",
+  LocaleKeys.netTimeout: "Network connection time out",
+  LocaleKeys.netCancel: "Network connection cancel",
+  LocaleKeys.netOther: "Other error",
+
   // 样式
   LocaleKeys.stylesTitle: 'Sytles && Function',
 };

@@ -1,5 +1,4 @@
 import 'package:base_framework/common/index.dart';
-import 'package:dio/dio.dart';
 
 class UserApi {
   /// 登录
@@ -7,7 +6,8 @@ class UserApi {
     print('login request: ${params!.toJson()}');
     var response = await HttpRequestService.to.post(
       '/jw-cloud-auth/v1/open/user/login',
-      data: FormData.fromMap(params.toJson()),
+      data: params,
+      contentType: "form",
     );
     print("respnse:$response");
 

@@ -14,6 +14,16 @@ class LocaleKeys {
   static const commonErrorLoadingMsg = 'common_error_loading_msg';
   static const commonNoData = 'common_no_data';
 
+  // 网络请求
+  static const netUnauthorized = 'net_unauthorized';
+  static const netNotFound = 'net_not_found';
+  static const netServerError = 'net_server_error';
+  static const netBadGateway = 'net_bad_gateway';
+  static const netUnknownMistake = 'net_unknown_mistake';
+  static const netTimeout = 'net_time_out';
+  static const netCancel = 'net_cancel';
+  static const netOther = 'net_other';
+
   // 样式
   static const stylesTitle = 'styles_title';
 }

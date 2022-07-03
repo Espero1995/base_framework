@@ -19,7 +19,7 @@ class LoginController extends GetxController {
     if ((userformKey.currentState as FormState).validate()) {
       await UserApi.login(UserLoginRequest(
         account: accountController.text,
-        passwd: pwdController.text,
+        passwd: securityMD5(pwdController.text),
       ));
 
       // try {
