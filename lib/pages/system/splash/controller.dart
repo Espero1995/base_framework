@@ -11,7 +11,7 @@ class SplashController extends GetxController {
   // }
 
   void toHome() {
-    Future.delayed(const Duration(seconds: 1)).then((_) {
+    Future.delayed(const Duration(seconds: 1)).then((_) async {
       /**
        * 处理业务：
        * 1.欢迎页 （第一次加载App）
@@ -19,10 +19,14 @@ class SplashController extends GetxController {
        * （1）登录页
        * （2）首页
        */
+      console.log(
+          "是否登录了？${UserService.to.isLogin}====${UserService.to.profile.toJson()}");
       if (ConfigService.to.firstOpen == false) {
         Get.offAllNamed(RouteNames.systemWelcomeRoute);
       } else {
-        Get.offAllNamed(RouteNames.systemLoginRoute);
+        if (await UserService.to.checkIsLogin()) {
+          Get.offAllNamed(RouteNames.mainRoute);
+        }
       }
     });
   }

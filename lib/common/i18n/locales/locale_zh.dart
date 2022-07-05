@@ -1,20 +1,20 @@
-import '../locale_keys.dart';
+import "../locale_keys.dart";
 
 /// 多语言 中文
 Map<String, String> localeZh = {
   // 通用
-  LocaleKeys.commonSearchInput: '输入关键字',
-  LocaleKeys.commonBottomRemove: '删除',
-  LocaleKeys.commonBottomCancel: '取消',
-  LocaleKeys.commonBottomConfirm: '确认',
-  LocaleKeys.commonBottomApply: '应用',
-  LocaleKeys.commonSelectTips: '请选择',
-  LocaleKeys.commonMessageSuccess: '@method 成功',
-  LocaleKeys.commonMessageIncorrect: '@method 不正确',
-  LocaleKeys.commonDefaultLoadingMsg: '加载中...',
-  LocaleKeys.commonSuccessLoadingMsg: '成功',
-  LocaleKeys.commonErrorLoadingMsg: '错误',
-  LocaleKeys.commonNoData: '暂无数据',
+  LocaleKeys.commonSearchInput: "输入关键字",
+  LocaleKeys.commonBottomRemove: "删除",
+  LocaleKeys.commonBottomCancel: "取消",
+  LocaleKeys.commonBottomConfirm: "确认",
+  LocaleKeys.commonBottomApply: "应用",
+  LocaleKeys.commonSelectTips: "请选择",
+  LocaleKeys.commonMessageSuccess: "@method 成功",
+  LocaleKeys.commonMessageIncorrect: "@method 不正确",
+  LocaleKeys.commonDefaultLoadingMsg: "加载中...",
+  LocaleKeys.commonSuccessLoadingMsg: "成功",
+  LocaleKeys.commonErrorLoadingMsg: "错误",
+  LocaleKeys.commonNoData: "暂无数据",
 
   // 网络请求
   LocaleKeys.netUnauthorized: "未授权，登录账号已过期",
@@ -26,6 +26,12 @@ Map<String, String> localeZh = {
   LocaleKeys.netCancel: "网络连接取消",
   LocaleKeys.netOther: "其他错误",
 
+  // App 导航
+  LocaleKeys.tabBarHome: "首页",
+  LocaleKeys.tabBarStyle: "样式",
+  LocaleKeys.tabBarMessage: "消息",
+  LocaleKeys.tabBarProfile: "我的",
+
   // 样式
-  LocaleKeys.stylesTitle: '样式 && 功能',
+  LocaleKeys.stylesTitle: "样式 && 功能",
 };

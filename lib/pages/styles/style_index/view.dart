@@ -217,7 +217,7 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           textColor: Colors.white,
           textSize: 18.sp,
           borderRadius: 5.w,
-          onTap: () => Get.offAll(const LoginPage()),
+          onTap: controller.onLogout,
         ).height(50.w).padding(
               left: AppSpace.page,
               right: AppSpace.page,

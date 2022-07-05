@@ -8,7 +8,8 @@ class LoginController extends GetxController {
   LoginController();
 
   /// 用户名 / 密码控制器
-  TextEditingController accountController = TextEditingController();
+  TextEditingController accountController = TextEditingController(
+      text: Storage().getString(Constants.storageAccount));
   TextEditingController pwdController = TextEditingController();
 
   /// 表单 key
@@ -17,28 +18,23 @@ class LoginController extends GetxController {
   /// 登录
   Future<void> onSignIn() async {
     if ((userformKey.currentState as FormState).validate()) {
-      await UserApi.login(UserLoginRequest(
-        account: accountController.text,
-        passwd: securityMD5(pwdController.text),
-      ));
-
-      // try {
-      //   Loading.show(text: "Logining, Please...");
-      //   Future.delayed(const Duration(milliseconds: 1500), () async {
-      //     await Loading.success(text: "Login Succeeded!");
-      //     await Get.off(const MainPage());
-      //   });
-      // } catch (e) {
-      //   await Loading.error(text: "Login Failed!");
-      // } finally {
-      //   await Loading.dismiss();
-      // }
+      try {
+        Loading.show(text: "Logining, Please...");
+        UserProfileModel profile = await UserApi.login(UserLoginRequest(
+          account: accountController.text,
+          passwd: securityMD5(pwdController.text),
+        ));
+        await UserService.to.setToken(profile.accessToken!); // 设置令牌
+        await UserService.to.setProfile(profile); // 设置profile
+        await Loading.success(text: "Login Succeeded!");
+        Get.offAll(() => const MainPage());
+        Storage().setString(Constants.storageAccount, accountController.text);
+      } catch (e) {
+        await Loading.error(text: "Login Failed!");
+      } finally {
+        await Loading.dismiss();
+      }
     }
-  }
-
-  /// 验证码
-  void onVerify() {
-    Get.offNamed(RouteNames.stylesPinRoute);
   }
 
   /// 账号校验

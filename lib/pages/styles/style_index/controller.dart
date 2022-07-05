@@ -1,4 +1,7 @@
 import 'package:base_framework/common/index.dart';
+import 'package:base_framework/pages/index.dart';
+// import 'package:base_framework/pages/index.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class StylesIndexController extends GetxController {
@@ -37,6 +40,23 @@ class StylesIndexController extends GetxController {
   // 主题
   onThemeSelected() async {
     await ConfigService.to.setThemeMode();
+  }
+
+  /// 退出登录
+  void onLogout() async {
+    await CustomDialog.show(
+      context: Get.context!,
+      confirm: const Text('Yes, Logout'),
+      cancel: const Text('Cancel'),
+      builder: (BuildContext context) {
+        return const Text('Are you sure want to logout?');
+      },
+      onConfirm: () {
+        UserService.to.logout();
+        Get.offAll(() => const LoginPage());
+      },
+      onCancel: () => Navigator.of(Get.context!).pop(),
+    );
   }
 
   _initData() {

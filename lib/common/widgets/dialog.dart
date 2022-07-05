@@ -1,90 +1,131 @@
+import 'package:base_framework/common/index.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../index.dart';
+class CustomDialog extends StatelessWidget {
+  final Widget child;
+  final Widget? title;
+  final Widget? cancel;
+  final Widget? confirm;
+  final void Function()? onCancel;
+  final void Function()? onConfirm;
 
-/// 对话框
-class ActionDialog {
-  static Future normal({
+  const CustomDialog({
+    Key? key,
+    required this.child,
+    this.title,
+    this.cancel,
+    this.confirm,
+    this.onCancel,
+    this.onConfirm,
+  }) : super(key: key);
+
+  static Future<T?> show<T>({
     required BuildContext context,
+    required WidgetBuilder builder,
     Widget? title,
-    Widget? content,
     Widget? confirm,
     Widget? cancel,
-    Color? confirmBackgroundColor,
-    Function()? onConfirm,
-    Function()? onCancel,
-  }) async {
-    return await showDialog(
+    void Function()? onConfirm,
+    void Function()? onCancel,
+  }) {
+    return showDialog<T>(
       context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Container(
-            padding: EdgeInsets.all(AppSpace.card),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                DefaultTextStyle(
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.onPrimary,
-                  ),
-                  child: title != null
-                      ? Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: title,
-                        )
-                      : Container(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: DefaultTextStyle(
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.onPrimary,
+      barrierColor: const Color(0xFF09101D).withOpacity(0.7),
+      builder: (context) => CustomDialog(
+        child: builder(context),
+        title: title,
+        confirm: confirm,
+        cancel: cancel,
+        onConfirm: onConfirm,
+        onCancel: onCancel,
+      ),
+    );
+  }
+
+  static Future<void> showAccess({
+    required BuildContext context,
+    required Widget content,
+  }) async {
+    await show(
+      context: context,
+      builder: (context) => content,
+      title: const Text('Permission'),
+      cancel: const Text('Cancel'),
+      confirm: const Text('Setting'),
+      onCancel: () => Navigator.of(context).pop(),
+      onConfirm: () => Access.setting(),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final buttonGroup = <Widget>[];
+    if (cancel != null) {
+      buttonGroup.add(Expanded(
+        child: CustomButton(
+          type: CustomButtonType.ghost,
+          shape: CustomButtonShape.stadium,
+          child: cancel!,
+          onPressed: onCancel,
+        ),
+      ));
+    }
+    if (confirm != null && cancel != null) {
+      buttonGroup.add(SizedBox(width: 12.w));
+    }
+    if (confirm != null) {
+      buttonGroup.add(Expanded(
+        child: CustomButton(
+          shape: CustomButtonShape.stadium,
+          child: confirm!,
+          onPressed: onConfirm,
+        ),
+      ));
+    }
+    return Dialog(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (title != null)
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: DefaultTextStyle.merge(
+                textAlign: TextAlign.center,
+                style: DialogTheme.of(context).titleTextStyle,
+                child: title!,
+              ),
+            ),
+          Flexible(
+            flex: 1,
+            fit: FlexFit.loose,
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              padding: const EdgeInsets.all(15).copyWith(
+                top: title != null ? 0 : null,
+                bottom: buttonGroup.isNotEmpty ? 0 : null,
+              ),
+              child: DefaultTextStyle.merge(
+                textAlign: TextAlign.center,
+                style: DialogTheme.of(context).contentTextStyle?.copyWith(
+                      fontSize: title != null ? 18.w : null,
                     ),
-                    child: content ?? Text(LocaleKeys.commonBottomRemove.tr),
-                  ),
+                child: Container(
+                  alignment: Alignment.center,
+                  constraints: BoxConstraints(minHeight: 80.h),
+                  child: child,
                 ),
-                SizedBox(height: AppSpace.listRow),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ButtonWidget.textRoundFilled(
-                        LocaleKeys.commonBottomCancel.tr,
-                        onTap: () {
-                          Get.back(closeOverlays: true);
-                          if (onCancel != null) onCancel();
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      child: ButtonWidget.textRoundFilled(
-                        LocaleKeys.commonBottomConfirm.tr,
-                        bgColor:
-                            confirmBackgroundColor ?? AppColors.surfaceVariant,
-                        onTap: () {
-                          Get.back(closeOverlays: true);
-                          if (onConfirm != null) onConfirm();
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
           ),
-        );
-      },
+          if (buttonGroup.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: Row(children: buttonGroup),
+            ),
+        ],
+      ),
     );
   }
 }

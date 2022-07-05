@@ -32,7 +32,7 @@ class HttpRequestService extends GetxService {
     // 拦截器
     _dio.interceptors.add(RequestInterceptors());
 
-    // 在调试模式下需要抓包调试，所以我们使用代理，并禁用HTTPS证书校验
+    // 在调试模式下需要抓包调试，所以我们使用代理，并禁用HTTPS证书校验 - 如果不需要，就在proxy.dart 文件中将PROXY_ENABLE设置成false，重新运行即可。
     if (!Global.isRelease && PROXY_ENABLE) {
       (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
           (client) {

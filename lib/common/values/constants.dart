@@ -9,4 +9,5 @@ class Constants {
   static const storageThemeCode = 'theme_code'; // 主题
   static const storageToken = 'token'; // token
   static const storageProfile = 'profile'; // 用户信息
+  static const storageAccount = 'account'; // 登录账号保存
 }

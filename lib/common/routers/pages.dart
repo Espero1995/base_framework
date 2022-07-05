@@ -16,6 +16,7 @@ abstract class RoutePages {
     GetPage(
       name: RouteNames.mainRoute,
       page: () => const MainPage(),
+      customTransition: RouteTransition(),
     ),
 
     // 样式 =============================
