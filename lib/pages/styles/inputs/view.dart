@@ -35,7 +35,7 @@ class InputsPage extends GetView<InputsController> {
       // 4 图标文本 填充
       InputWidget.iconTextFilled(
         IconWidget.svg(
-          AssetsSvgs.pHomeSvg,
+          AssetsSvgs.homeSvg,
         ).paddingRight(10).paddingLeft(10),
         controller: controller.iconTextFilledController,
       ).width(300).paddingBottom(AppSpace.listRow),

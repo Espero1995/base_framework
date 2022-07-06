@@ -18,6 +18,22 @@ abstract class RoutePages {
       page: () => const MainPage(),
       customTransition: RouteTransition(),
     ),
+    GetPage(
+      name: RouteNames.homeRoute,
+      page: () => const HomePage(),
+    ),
+    GetPage(
+      name: RouteNames.patternRoute,
+      page: () => const PatternPage(),
+    ),
+    GetPage(
+      name: RouteNames.messageRoute,
+      page: () => const MessagePage(),
+    ),
+    GetPage(
+      name: RouteNames.myRoute,
+      page: () => const MyPage(),
+    ),
 
     // 样式 =============================
     GetPage(

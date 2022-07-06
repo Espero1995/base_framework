@@ -137,9 +137,9 @@ class IconWidget extends StatelessWidget {
             fontSize: 9,
           ),
         ),
-        position: BadgePosition.topEnd(top: -7, end: -8),
+        position: BadgePosition.topEnd(top: -7, end: -10),
         elevation: 0,
-        badgeColor: AppColors.primary,
+        badgeColor: Colors.red, //AppColors.primary
         padding: const EdgeInsets.all(4.0),
         child: icon ??
             Icon(

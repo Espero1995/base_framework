@@ -28,7 +28,7 @@ Map<String, String> localeEn = {
 
   // App 导航
   LocaleKeys.tabBarHome: "Home",
-  LocaleKeys.tabBarStyle: "Style",
+  LocaleKeys.tabBarPattern: "Pattern",
   LocaleKeys.tabBarMessage: "Message",
   LocaleKeys.tabBarProfile: "Profile",
 

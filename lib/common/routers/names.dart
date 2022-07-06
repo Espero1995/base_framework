@@ -7,6 +7,10 @@ class RouteNames {
   static const systemSplashRoute = '/system_splash';
   static const systemWelcomeRoute = '/system_welcome';
   static const systemLoginRoute = '/system_login';
+  static const homeRoute = '/home';
+  static const patternRoute = '/pattern';
+  static const messageRoute = '/message';
+  static const myRoute = '/my';
 
   /// 样式
   static const stylesIndexRoute = '/styles_index';

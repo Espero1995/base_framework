@@ -95,6 +95,8 @@ dependencies:
   logger: ^1.1.0
   # logo 图标生成库icons
   flutter_launcher_icons: ^0.9.3
+  # lottie动画 加载json
+  lottie: ^1.3.0
 
 # app 图标
 flutter_icons:
@@ -136,6 +138,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
+    - assets/lotties/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

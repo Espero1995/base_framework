@@ -28,7 +28,7 @@ Map<String, String> localeZh = {
 
   // App 导航
   LocaleKeys.tabBarHome: "首页",
-  LocaleKeys.tabBarStyle: "样式",
+  LocaleKeys.tabBarPattern: "样式",
   LocaleKeys.tabBarMessage: "消息",
   LocaleKeys.tabBarProfile: "我的",
 

@@ -26,7 +26,7 @@ class LocaleKeys {
 
   // App 导航
   static const tabBarHome = "tab_bar_home";
-  static const tabBarStyle = "tab_bar_style";
+  static const tabBarPattern = "tab_bar_pattern";
   static const tabBarMessage = "tab_bar_message";
   static const tabBarProfile = "tab_bar_profile";
 

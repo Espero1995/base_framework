@@ -1,6 +1,10 @@
 library pages;
 
-///
+/// 业务
+export 'homeModule/home/index.dart';
+export 'patternModule/pattern/index.dart';
+export 'messageModule/message/index.dart';
+export 'myModule/my/index.dart';
 
 /// 系统
 export 'system/splash/index.dart';

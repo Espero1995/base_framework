@@ -1,6 +1,7 @@
 import 'package:base_framework/common/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import 'index.dart';
 
@@ -10,10 +11,11 @@ class SplashPage extends GetView<SplashController> {
   Widget _buildView() {
     return Container(
       color: Colors.white,
-      child: const ImageWidget.asset(
-        AssetsImages.splashPng,
-        fit: BoxFit.none,
-      ),
+      child: Lottie.asset(AssetsLotties.flutterJson),
+      // const ImageWidget.asset(
+      //   AssetsImages.splashPng,
+      //   fit: BoxFit.none,
+      // ),
     );
   }
 
