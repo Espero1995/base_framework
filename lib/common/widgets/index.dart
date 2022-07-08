@@ -11,3 +11,4 @@ export 'text_form.dart'; //form表单
 export 'list_tile.dart'; //ListTile 替代版本
 export 'group_list.dart'; // 分组列表组件
 export 'dialog.dart'; //提示框
+export 'cell.dart'; //自定义cell

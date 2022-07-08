@@ -15,6 +15,7 @@ Map<String, String> localeEn = {
   LocaleKeys.commonSuccessLoadingMsg: "Success",
   LocaleKeys.commonErrorLoadingMsg: "Error",
   LocaleKeys.commonNoData: "No Data",
+  LocaleKeys.commonExitApp: "Press again to exit app",
 
   // 网络请求
   LocaleKeys.netUnauthorized: "Unauthorized, login account expired",
@@ -31,6 +32,22 @@ Map<String, String> localeEn = {
   LocaleKeys.tabBarPattern: "Pattern",
   LocaleKeys.tabBarMessage: "Message",
   LocaleKeys.tabBarProfile: "Profile",
+
+  // 我的
+  LocaleKeys.profileStyle: "Style",
+  LocaleKeys.profileLanguage: "Language",
+  LocaleKeys.profileChinese: "Chinese",
+  LocaleKeys.profileEnglish: "English",
+  LocaleKeys.profileTheme: "Appearance",
+  LocaleKeys.profileThemeSystem: "System",
+  LocaleKeys.profileThemeLight: "Light",
+  LocaleKeys.profileThemeDark: "Dark",
+  LocaleKeys.profileWelcome: "Welcome",
+  LocaleKeys.profileQA: "F&Q",
+  LocaleKeys.profileVersionUpdate: "Update",
+  LocaleKeys.profileLogout: "Logout",
+  LocaleKeys.profileLogoutTip: "Are you sure to logout?",
+  LocaleKeys.profileSetting: "Setting",
 
   // 样式
   LocaleKeys.stylesTitle: "Sytles && Function",

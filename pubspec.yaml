@@ -89,6 +89,8 @@ dependencies:
   validatorless: ^1.2.1
   # 设备启动图
   flutter_native_splash: ^2.1.2+1
+  # 版本更新
+  launch_review: ^3.0.1
 
   # 其他辅助库
   # “花里胡哨”的日志打印

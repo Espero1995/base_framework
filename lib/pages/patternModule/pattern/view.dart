@@ -1,3 +1,4 @@
+import 'package:base_framework/common/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +21,7 @@ class PatternPage extends GetView<PatternController> {
       id: "pattern",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("pattern")),
+          appBar: AppBar(title: Text(LocaleKeys.tabBarPattern.tr)),
           body: SafeArea(
             child: _buildView(),
           ),

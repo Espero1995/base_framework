@@ -1,3 +1,4 @@
+import 'package:base_framework/common/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +21,7 @@ class HomePage extends GetView<HomeController> {
       id: "home",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("home")),
+          appBar: AppBar(title: Text(LocaleKeys.tabBarHome.tr)),
           body: SafeArea(
             child: _buildView(),
           ),

@@ -1,7 +1,5 @@
 import 'package:base_framework/pages/index.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:base_framework/common/index.dart';
 
@@ -20,59 +18,6 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           subtitle: TextWidget.body1(_controller.title),
           onTap: () {
             _controller.onTextChange("这是我新写的styleIndex内容 ");
-          },
-        ),
-
-        const Divider(),
-
-        //版本号
-        ListTile(
-          title: Text(
-            "版本号 - v${ConfigService.to.version}",
-            style: const TextStyle(
-              fontFamily: 'NotoSansSC',
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ),
-
-        const Divider(),
-
-        //国际化
-        ListTile(
-          title: Text(
-            "语言 : ${ConfigService.to.locale.toLanguageTag()}",
-            style: const TextStyle(
-              fontFamily: 'PTSerif',
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-          onTap: () {
-            _controller.onLanguageSelected();
-          },
-        ),
-
-        const Divider(),
-
-        //国际化
-        ListTile(
-          title: const Text("欢迎页开启"),
-          trailing: CupertinoSwitch(
-              value: controller.isFirstOpenChecked,
-              onChanged: (v) {
-                controller.isFirstOpenChecked = v;
-              }),
-        ),
-
-        const Divider(),
-
-        // 主题
-        ListTile(
-          title: TextWidget.body1(
-              "主题 : ${ConfigService.to.isDarkMode ? "Dark" : "Light"}"),
-          onTap: () {
-            _controller.onThemeSelected();
           },
         ),
 
@@ -210,20 +155,6 @@ class StylesIndexPage extends GetView<StylesIndexController> {
           onTap: () => Get.toNamed(RouteNames.stylesPinRoute),
           title: const TextWidget.body1("验证码Pin"),
         ),
-
-        ButtonWidget.text(
-          "Logout",
-          bgColor: Colors.red,
-          textColor: Colors.white,
-          textSize: 18.sp,
-          borderRadius: 5.w,
-          onTap: controller.onLogout,
-        ).height(50.w).padding(
-              left: AppSpace.page,
-              right: AppSpace.page,
-              bottom: AppSpace.listRow * 2,
-              top: AppSpace.listRow * 2,
-            ),
       ],
     );
   }

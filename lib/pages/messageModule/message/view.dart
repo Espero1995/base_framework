@@ -1,3 +1,4 @@
+import 'package:base_framework/common/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +21,7 @@ class MessagePage extends GetView<MessageController> {
       id: "message",
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text("message")),
+          appBar: AppBar(title: Text(LocaleKeys.tabBarMessage.tr)),
           body: SafeArea(
             child: _buildView(),
           ),

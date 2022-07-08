@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
@@ -200,6 +202,43 @@ extension ExWidget on Widget {
           ],
         ),
         child: this,
+      );
+
+  Widget frostedCard({
+    Key? key,
+    double? radius,
+
+    // 毛玻璃 设置背景色 以及透明度 使用 Color.formRGBO方式进行实现
+    Color? color,
+    Color? shadowColor,
+    double? blurRadius,
+  }) =>
+      ClipRect(
+        //背景过滤器
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: color ?? const Color.fromRGBO(255, 255, 255, 0.5),
+              borderRadius: BorderRadius.all(
+                Radius.circular(radius ?? 5),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  // x偏移量 | y偏移量
+                  offset: const Offset(0, 3),
+                  color: shadowColor ?? AppColors.outline.withOpacity(0.1),
+                  // 阴影模糊半径
+                  blurRadius: blurRadius ?? 8,
+                  // 阴影扩散半径
+                  spreadRadius: 0,
+                  blurStyle: BlurStyle.normal,
+                ),
+              ],
+            ),
+            child: this,
+          ),
+        ),
       );
 
   // 居中

@@ -46,7 +46,9 @@ class BuildNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     var tabBarWidgets = <Widget>[];
     for (var i = 0; i < items.length; i++) {
-      var color = (i == currentIndex) ? AppColors.primary : null;
+      var color = (i == currentIndex)
+          ? AppColors.primary
+          : const Color.fromRGBO(89, 99, 101, 1);
       var item = items[i];
       tabBarWidgets.add(
         <Widget>[
@@ -95,7 +97,7 @@ class BuildNavigation extends StatelessWidget {
       );
     }
     return BottomAppBar(
-      // color: AppColors.surface,
+      color: AppColors.surface,
       child: tabBarWidgets
           .toRow(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

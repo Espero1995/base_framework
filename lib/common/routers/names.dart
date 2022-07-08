@@ -11,6 +11,7 @@ class RouteNames {
   static const patternRoute = '/pattern';
   static const messageRoute = '/message';
   static const myRoute = '/my';
+  static const mySystemRoute = '/my/system';
 
   /// 样式
   static const stylesIndexRoute = '/styles_index';

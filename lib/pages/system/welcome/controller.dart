@@ -16,8 +16,11 @@ class WelcomeController extends GetxController {
   }
 
   // 跳转到主界面
-  void onToMain() {
-    Get.offAllNamed(RouteNames.systemLoginRoute);
+  void onToMain() async {
+    // Get.offAllNamed(RouteNames.systemLoginRoute);
+    if (await UserService.to.checkIsLogin()) {
+      Get.offAllNamed(RouteNames.mainRoute);
+    }
   }
 
   // 跳转到下一个页面

@@ -17,6 +17,7 @@ abstract class RoutePages {
       name: RouteNames.mainRoute,
       page: () => const MainPage(),
       customTransition: RouteTransition(),
+      binding: MainBinding(),
     ),
     GetPage(
       name: RouteNames.homeRoute,
@@ -33,6 +34,10 @@ abstract class RoutePages {
     GetPage(
       name: RouteNames.myRoute,
       page: () => const MyPage(),
+    ),
+    GetPage(
+      name: RouteNames.mySystemRoute,
+      page: () => const SystemPage(),
     ),
 
     // 样式 =============================

@@ -31,7 +31,7 @@ class ButtonsPage extends GetView<ButtonsController> {
       // 2 图标按钮
       ButtonWidget.icon(
         IconWidget.svg(
-          AssetsSvgs.homeSvg,
+          AssetsSvgs.tabHomeSvg,
           size: 30,
         ),
       ).paddingBottom(AppSpace.listRow),
@@ -39,7 +39,7 @@ class ButtonsPage extends GetView<ButtonsController> {
       // 3 图标文字按钮
       ButtonWidget.iconText(
         IconWidget.svg(
-          AssetsSvgs.homeSvg,
+          AssetsSvgs.tabHomeSvg,
           size: 30,
         ),
         "Home",
@@ -50,7 +50,7 @@ class ButtonsPage extends GetView<ButtonsController> {
       // 4 图标文字按钮 - 边框
       ButtonWidget.iconText(
         IconWidget.svg(
-          AssetsSvgs.homeSvg,
+          AssetsSvgs.tabHomeSvg,
           size: 30,
         ),
         "Home",
@@ -75,7 +75,7 @@ class ButtonsPage extends GetView<ButtonsController> {
       // 6 图标文字按钮 - 纵向
       ButtonWidget.iconText(
         IconWidget.svg(
-          AssetsSvgs.homeSvg,
+          AssetsSvgs.tabHomeSvg,
           size: 30,
         ),
         "Home",
@@ -93,7 +93,7 @@ class ButtonsPage extends GetView<ButtonsController> {
       ButtonWidget.primary(
         "Buy Now",
         icon: IconWidget.svg(
-          AssetsSvgs.homeSvg,
+          AssetsSvgs.tabHomeSvg,
           color: Colors.white,
         ),
       ).height(50).width(200).paddingBottom(AppSpace.listRow),

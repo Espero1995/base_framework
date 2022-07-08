@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+/*
+  首页
+  - 底部导航 navigation
+  - 内容页 pageView
+*/
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -38,7 +43,7 @@ class _MainViewGetX extends GetView<MainController> {
                 const Duration(seconds: 1)) {
           //两次点击间隔超过1秒则重新计时
           _lastPressedAt = DateTime.now();
-          Loading.toast('Press again to exit app');
+          Loading.toast(LocaleKeys.commonExitApp.tr);
           return false;
         }
         await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
@@ -58,20 +63,21 @@ class _MainViewGetX extends GetView<MainController> {
               currentIndex: controller.currentIndex,
               items: [
                 NavigationItemModel(
-                  // label: LocaleKeys.tabBarHome.tr,
-                  icon: AssetsSvgs.homeSvg,
+                  label: LocaleKeys.tabBarHome.tr,
+                  icon: AssetsSvgs.tabHomeSvg,
                 ),
                 NavigationItemModel(
-                  // label: LocaleKeys.tabBarPattern.tr,
-                  icon: AssetsSvgs.patternSvg,
+                  label: LocaleKeys.tabBarPattern.tr,
+                  icon: AssetsSvgs.tabPatternSvg,
                 ),
                 NavigationItemModel(
                   label: LocaleKeys.tabBarMessage.tr,
-                  icon: AssetsSvgs.messageSvg,
+                  icon: AssetsSvgs.tabMessageSvg,
+                  count: 99,
                 ),
                 NavigationItemModel(
-                  // label: LocaleKeys.tabBarProfile.tr,
-                  icon: AssetsSvgs.profileSvg,
+                  label: LocaleKeys.tabBarProfile.tr,
+                  icon: AssetsSvgs.tabProfileSvg,
                 )
               ],
               onTap: controller.onJumpToPage, // 切换tab事件
@@ -79,7 +85,7 @@ class _MainViewGetX extends GetView<MainController> {
           },
         ),
         body: PageView(
-          physics: const NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(), // 不响应用户的滚动
           controller: controller.pageController,
           onPageChanged: controller.onIndexChanged,
           children: const [
