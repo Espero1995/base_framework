@@ -38,6 +38,7 @@ class CustomCellGroup extends StatelessWidget {
 
 class CustomCell extends StatelessWidget {
   final Widget title;
+  final Widget? subtitle;
   final String? iconPath;
   final Color? iconColor;
   final Widget? value;
@@ -52,6 +53,7 @@ class CustomCell extends StatelessWidget {
   const CustomCell({
     Key? key,
     required this.title,
+    this.subtitle,
     this.iconPath,
     this.iconColor,
     this.value,
@@ -98,17 +100,29 @@ class CustomCell extends StatelessWidget {
     cellItems.add(
       Expanded(
         // 文本的样式默认是可以被继承
-        child: DefaultTextStyle.merge(
-          child: title,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 17.w,
+        child: <Widget>[
+          DefaultTextStyle.merge(
+            child: title,
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 17.w,
+            ),
+          ).translate(
+            offset: Offset(0, -1.5.h),
           ),
-        ).translate(
-          offset: Offset(0, -1.5.h),
-        ),
+          // 副标题
+          if (subtitle != null)
+            SizedBox(
+                child: DefaultTextStyle.merge(
+                    child: subtitle!,
+                    style: TextStyle(
+                      color: AppColors.secondary,
+                      fontSize: 15.w,
+                    )))
+        ].toColumn(crossAxisAlignment: CrossAxisAlignment.start),
       ),
     );
+
     // 值value
     if (value != null) {
       cellItems.add(SizedBox(width: 12.w));

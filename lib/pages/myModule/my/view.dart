@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:badges/badges.dart';
 import 'package:base_framework/common/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,15 +44,30 @@ class MyPage extends GetView<MyController> {
           <Widget>[
             // 用户信息
             <Widget>[
-              // 头像
-              ImageWidget.asset(
-                // 测试需要改成自定义头像
-                AssetsImages.defaultPng,
-                width: 80.w,
-                height: 80.w,
-                fit: BoxFit.fill,
-                radius: 40.w,
-              ).paddingRight(AppSpace.listItem),
+              //通过ConstrainedBox来确保Stack占满屏幕
+              SizedBox(
+                // constraints: const BoxConstraints.expand(),
+                child: Stack(
+                  children: [
+                    // 头像
+                    ImageWidget.asset(
+                      // 测试需要改成自定义头像
+                      AssetsImages.defaultPng,
+                      width: 80.w,
+                      height: 80.w,
+                      fit: BoxFit.fill,
+                      radius: 40.w,
+                    ).paddingRight(AppSpace.listItem).onTap(() {
+                      Loading.toast("切换头像~");
+                    }),
+                    IconWidget.svg(AssetsSvgs.stylePhotoSvg,
+                            color: Colors.grey, size: 25.w)
+                        .positioned(bottom: 0, right: 5),
+                    // Overlay()
+                  ],
+                ),
+              ),
+
               // 称呼
               TextWidget.title1(
                 "${UserService.to.profile.account}",
@@ -93,6 +105,7 @@ class MyPage extends GetView<MyController> {
                 title: LocaleKeys.profileQA.tr,
                 svgColor: Colors.red,
                 svgPath: AssetsSvgs.styleVersionSvg,
+                onTap: () => Loading.toast("Q&A"),
               ),
             ]
                 .toRow(

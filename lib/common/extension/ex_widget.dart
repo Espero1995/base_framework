@@ -219,7 +219,10 @@ extension ExWidget on Widget {
           filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
           child: Container(
             decoration: BoxDecoration(
-              color: color ?? const Color.fromRGBO(255, 255, 255, 0.5),
+              color: color ??
+                  (ConfigService.to.isDarkMode
+                      ? const Color.fromRGBO(0, 0, 0, 0.5)
+                      : const Color.fromRGBO(255, 255, 255, 0.5)),
               borderRadius: BorderRadius.all(
                 Radius.circular(radius ?? 5),
               ),

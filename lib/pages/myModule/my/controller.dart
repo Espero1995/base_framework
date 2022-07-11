@@ -1,6 +1,4 @@
 import 'package:base_framework/common/index.dart';
-import 'package:base_framework/pages/index.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MyController extends GetxController {

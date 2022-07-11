@@ -50,7 +50,7 @@ dependencies:
   # 图片缓存
   extended_image: ^6.0.3
   # 屏幕适配
-  flutter_screenutil: ^5.3.1
+  flutter_screenutil: 5.3.1
   # 本地存储
   shared_preferences: ^2.0.13
   # 轮播图
@@ -79,8 +79,8 @@ dependencies:
   # permission 权限
   permission_handler: ^9.2.0
   # 仿微信 - 媒体选择
-  wechat_assets_picker: ^7.2.0
-  wechat_camera_picker: ^3.1.0
+  # wechat_assets_picker: ^7.2.0
+  # wechat_camera_picker: ^3.1.0
   # 骨架屏
   skeletons: ^0.0.3
   # svg
